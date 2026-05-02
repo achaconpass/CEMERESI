@@ -1,26 +1,133 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Variables de shadcn (mantenemos para compatibilidad de componentes) */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", monospace;
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Paleta CEMERESI — accesible directamente como bg-teal, text-nude, etc. */
+  --color-teal: #1F4E5F;
+  --color-teal-hover: #0F2F3A;
+  --color-nude: #B89B85;
+  --color-nude-dark: #8B7363;
+  --color-cream: #FAF6F1;
+
+  /* Radius (con base 4px para coherencia CEMERESI) */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* === PALETA CEMERESI mapeada a las variables semánticas de shadcn === */
+  --background: #FAF6F1;        /* crema cálido */
+  --foreground: #1F4E5F;        /* teal profundo */
+
+  --card: #FFFFFF;              /* tarjetas en blanco puro sobre crema */
+  --card-foreground: #1F4E5F;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #1F4E5F;
+
+  --primary: #1F4E5F;            /* CTA principal en teal */
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #B89B85;          /* CTA secundario en nude */
+  --secondary-foreground: #FFFFFF;
+
+  --muted: rgba(31, 78, 95, 0.05);
+  --muted-foreground: rgba(31, 78, 95, 0.6);
+
+  --accent: #B89B85;
+  --accent-foreground: #1F4E5F;
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: rgba(184, 155, 133, 0.3);   /* nude al 30% para bordes sutiles */
+  --input: rgba(184, 155, 133, 0.3);
+  --ring: #1F4E5F;
+
+  /* Charts (los dejamos por ahora, no los usamos) */
+  --chart-1: #1F4E5F;
+  --chart-2: #B89B85;
+  --chart-3: #8B7363;
+  --chart-4: #0F2F3A;
+  --chart-5: #FAF6F1;
+
+  --radius: 0.25rem;             /* 4px — coherente con brief CEMERESI */
+
+  /* Sidebar (no la usamos pero shadcn lo pide) */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1F4E5F;
+  --sidebar-primary: #1F4E5F;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #B89B85;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(184, 155, 133, 0.3);
+  --sidebar-ring: #1F4E5F;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  html {
+    @apply font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* === Utility class: Eyebrow (pre-titles uppercase nude) === */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-nude);
 }
