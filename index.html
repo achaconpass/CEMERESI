@@ -1,0 +1,1840 @@
+<!DOCTYPE html><html lang="es"><head>
+
+
+
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Cemeresi · Centro médico-estético en Madrid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&amp;family=DM+Serif+Display:ital@0;1&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F2EA;
+    --cream-deep: #EFE7D8;
+    --forest: #2D4A3E;
+    --forest-deep: #1F3429;
+    --terracotta: #C97455;
+    --terracotta-deep: #B25E3F;
+    --ink: #1A1F1C;
+    --muted: #6B7370;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body { min-height: 100vh; }
+
+  /* ---------- Top utility bar ---------- */
+  .topbar {
+    background: var(--forest);
+    color: rgba(247, 242, 234, 0.92);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  .topbar-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 10px 32px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .topbar-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .topbar-item svg { opacity: 0.75; }
+  .topbar-spacer { flex: 1; }
+  .topbar-socials {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .topbar-socials a {
+    color: inherit;
+    opacity: 0.85;
+    display: inline-flex;
+    transition: opacity 0.2s;
+  }
+  .topbar-socials a:hover { opacity: 1; }
+  .topbar-divider {
+    width: 1px;
+    height: 14px;
+    background: rgba(247, 242, 234, 0.25);
+  }
+
+  /* ---------- Nav ---------- */
+  .nav-wrap { background: var(--cream); }
+  .nav {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--forest);
+  }
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--cream);
+    display: grid;
+    place-items: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: -0.02em;
+  }
+  .brand-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    color: var(--forest);
+  }
+  .brand-name em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-left: 16px;
+  }
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-spacer { flex: 1; }
+  .nav-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .nav-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+  .nav-phone svg { color: var(--forest); }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--forest);
+    color: var(--cream);
+    padding: 11px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover {
+    background: var(--forest-deep);
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero-wrap {
+    padding: 0 24px 24px;
+    background: var(--cream);
+  }
+  .hero {
+    position: relative;
+    height: calc(100vh - 110px);
+    min-height: 680px;
+    max-height: 880px;
+    border-radius: 24px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(120% 80% at 50% 35%, rgba(31, 52, 41, 0.20) 0%, rgba(31, 52, 41, 0.55) 70%, rgba(31, 52, 41, 0.78) 100%),
+      linear-gradient(180deg, rgba(31, 52, 41, 0.15) 0%, rgba(31, 52, 41, 0.35) 60%, rgba(31, 52, 41, 0.62) 100%);
+    z-index: 1;
+  }
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.18;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 32px 200px;
+    text-align: center;
+    color: #FAF6EE;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(247, 242, 234, 0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(247, 242, 234, 0.28);
+    color: #FAF6EE;
+    padding: 8px 16px 8px 12px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    margin-bottom: 28px;
+  }
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    box-shadow: 0 0 0 4px rgba(201, 116, 85, 0.25);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(201, 116, 85, 0.25); }
+    50% { box-shadow: 0 0 0 8px rgba(201, 116, 85, 0.05); }
+  }
+  .badge-sep {
+    color: rgba(250, 246, 238, 0.5);
+    font-weight: 400;
+  }
+
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(48px, 7.2vw, 112px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: #FAF6EE;
+    max-width: 14ch;
+    text-wrap: balance;
+    margin-bottom: 24px;
+  }
+  .headline em {
+    font-style: italic;
+    font-weight: 400;
+    color: #F4E4D2;
+  }
+  .subhead {
+    font-size: clamp(16px, 1.2vw, 18.5px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(250, 246, 238, 0.88);
+    max-width: 56ch;
+    text-wrap: pretty;
+    margin-bottom: 36px;
+    letter-spacing: -0.005em;
+  }
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 15.5px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .btn-cta-terracotta {
+    background: var(--terracotta);
+    color: #FFF8EE;
+    box-shadow: 0 8px 24px rgba(201, 116, 85, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+  .btn-cta-terracotta:hover {
+    background: var(--terracotta-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(201, 116, 85, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+  .btn-cta-glass {
+    background: rgba(247, 242, 234, 0.14);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #FAF6EE;
+    border: 1px solid rgba(247, 242, 234, 0.32);
+  }
+  .btn-cta-glass:hover {
+    background: rgba(247, 242, 234, 0.22);
+    transform: translateY(-2px);
+  }
+  .btn-cta-glass .wa-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #25D366;
+    display: grid;
+    place-items: center;
+    color: #FFF;
+  }
+
+  .reassure {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: rgba(250, 246, 238, 0.78);
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .reassure-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .reassure-item svg { color: rgba(244, 228, 210, 0.85); }
+  .reassure-sep {
+    width: 3px;
+    height: 3px;
+    background: rgba(250, 246, 238, 0.4);
+    border-radius: 50%;
+  }
+
+  /* ---------- Glass cards ---------- */
+  .glass-card {
+    position: absolute;
+    z-index: 4;
+    bottom: 28px;
+    border-radius: 18px;
+    padding: 18px 20px;
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(247, 242, 234, 0.22);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+    color: #FAF6EE;
+    width: 280px;
+  }
+  .glass-card-left {
+    left: 28px;
+    background: rgba(31, 52, 41, 0.32);
+  }
+  .glass-card-right {
+    right: 28px;
+    background: rgba(201, 116, 85, 0.78);
+    border-color: rgba(255, 240, 225, 0.32);
+    color: #FFF8EE;
+  }
+
+  .avatars {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid rgba(247, 242, 234, 0.95);
+    margin-left: -8px;
+    background-size: cover;
+    background-position: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #FAF6EE;
+    display: grid;
+    place-items: center;
+  }
+  .avatar:first-child { margin-left: 0; }
+  .avatar-1 { background: linear-gradient(135deg, #C97455, #A85A40); }
+  .avatar-2 { background: linear-gradient(135deg, #6B8773, #4A6353); }
+  .avatar-3 { background: linear-gradient(135deg, #D4A574, #B08454); }
+  .avatar-4 { background: linear-gradient(135deg, #8B6F4E, #6B543A); }
+  .avatar-more {
+    background: rgba(247, 242, 234, 0.95);
+    color: var(--forest);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .glass-stat {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 4px;
+    color: #FAF6EE;
+  }
+  .glass-meta {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(250, 246, 238, 0.7);
+    margin-bottom: 10px;
+  }
+  .glass-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: rgba(250, 246, 238, 0.92);
+  }
+  .stars {
+    color: #F4D082;
+    letter-spacing: 1px;
+    font-size: 11px;
+  }
+
+  .glass-card-right .eyebrow {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 248, 238, 0.85);
+    margin-bottom: 8px;
+  }
+  .glass-offer {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    margin-bottom: 8px;
+  }
+  .glass-offer em { font-style: italic; }
+  .glass-fineprint {
+    font-size: 12px;
+    color: rgba(255, 248, 238, 0.82);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .glass-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #FFF8EE;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 248, 238, 0.5);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+  .glass-link:hover { border-color: rgba(255, 248, 238, 1); }
+
+  /* Scroll cue */
+  .scroll-cue {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(250, 246, 238, 0.6);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .scroll-cue-line {
+    width: 1px;
+    height: 28px;
+    background: linear-gradient(to bottom, rgba(250, 246, 238, 0.6), transparent);
+    animation: drop 2.2s ease-in-out infinite;
+  }
+  @keyframes drop {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  @media (max-width: 900px) {
+    .nav-links, .topbar-inner > .topbar-item:not(:first-child), .nav-phone { display: none; }
+    .glass-card { position: static; width: auto; margin: 12px; }
+    .hero-content { padding: 40px 20px 40px; }
+  }
+
+  /* ============ SERVICES SECTION ============ */
+  .services {
+    background: var(--cream);
+    padding: 120px 24px 100px;
+  }
+  .services-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .services-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 64px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(45, 74, 62, 0.14);
+  }
+  .services-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 18px;
+  }
+  .services-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+  .services-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 4.6vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    color: var(--forest);
+    text-wrap: balance;
+  }
+  .services-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .services-lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--muted);
+    text-wrap: pretty;
+    max-width: 46ch;
+    padding-bottom: 6px;
+  }
+  .services-lede strong {
+    color: var(--forest);
+    font-weight: 600;
+  }
+
+  /* Service grid */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+  }
+  .service-card {
+    grid-column: span 2;
+    position: relative;
+    background: #FFFDF8;
+    border: 1px solid rgba(45, 74, 62, 0.10);
+    border-radius: 18px;
+    padding: 28px 26px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+    min-height: 320px;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(45, 74, 62, 0.22);
+    box-shadow: 0 18px 40px -16px rgba(31, 52, 41, 0.20);
+  }
+  .service-card:nth-child(1),
+  .service-card:nth-child(2) {
+    grid-column: span 3;
+    min-height: 360px;
+  }
+  .service-card.featured {
+    background: var(--forest);
+    color: var(--cream);
+    border-color: var(--forest);
+  }
+  .service-card.featured .service-meta-label,
+  .service-card.featured .service-cta {
+    color: rgba(247, 242, 234, 0.78);
+  }
+  .service-card.featured .service-cta {
+    border-top-color: rgba(247, 242, 234, 0.18);
+  }
+
+  .service-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--terracotta);
+    letter-spacing: 0;
+  }
+  .service-card.featured .service-num {
+    color: #E8A88E;
+  }
+
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--cream-deep);
+    display: grid;
+    place-items: center;
+    color: var(--forest);
+    margin-bottom: 4px;
+    transition: background 0.3s, color 0.3s;
+  }
+  .service-card.featured .service-icon {
+    background: rgba(247, 242, 234, 0.12);
+    color: var(--cream);
+  }
+  .service-card:hover .service-icon {
+    background: var(--terracotta);
+    color: #FFF8EE;
+  }
+
+  .service-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.05;
+    letter-spacing: -0.018em;
+    color: var(--forest);
+    margin-top: auto;
+  }
+  .service-card.featured .service-name {
+    color: #FAF6EE;
+  }
+  .service-card:nth-child(1) .service-name,
+  .service-card:nth-child(2) .service-name {
+    font-size: 34px;
+  }
+  .service-name em { font-style: italic; }
+
+  .service-desc {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+  .service-card.featured .service-desc {
+    color: rgba(247, 242, 234, 0.82);
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 2px;
+  }
+  .service-tag {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--forest);
+    background: rgba(45, 74, 62, 0.07);
+    padding: 4px 9px;
+    border-radius: 999px;
+    letter-spacing: 0.005em;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    position: relative;
+    z-index: 2;
+  }
+  .service-tag:hover {
+    background: var(--terracotta);
+    color: #FFF8EE;
+  }
+  .service-tag { cursor: pointer; }
+  .service-card.featured .service-tag {
+    background: rgba(247, 242, 234, 0.10);
+    color: rgba(247, 242, 234, 0.90);
+  }
+  .service-card.featured .service-tag:hover {
+    background: var(--terracotta);
+    color: #FFF8EE;
+  }
+
+  .service-cta {
+    margin-top: 14px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(45, 74, 62, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .service-meta-label {
+    color: var(--muted);
+  }
+  .service-arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--cream-deep);
+    color: var(--forest);
+    display: grid;
+    place-items: center;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+  }
+  .service-card:hover .service-arrow {
+    background: var(--terracotta);
+    color: #FFF8EE;
+    transform: rotate(-45deg);
+  }
+  .service-card.featured .service-arrow {
+    background: rgba(247, 242, 234, 0.14);
+    color: var(--cream);
+  }
+
+  .services-foot {
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px 28px;
+    background: rgba(45, 74, 62, 0.04);
+    border-radius: 16px;
+  }
+  .services-foot-text {
+    font-size: 15px;
+    color: var(--forest);
+    line-height: 1.45;
+  }
+  .services-foot-text strong { font-weight: 600; }
+  .services-foot-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--terracotta);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+
+  @media (max-width: 1000px) {
+    .services-head { grid-template-columns: 1fr; gap: 28px; }
+    .service-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-card,
+    .service-card:nth-child(1),
+    .service-card:nth-child(2) { grid-column: span 1; min-height: 280px; }
+    .service-card:nth-child(1) .service-name,
+    .service-card:nth-child(2) .service-name { font-size: 28px; }
+  }
+  @media (max-width: 600px) {
+    .service-grid { grid-template-columns: 1fr; }
+    .services { padding: 80px 20px 60px; }
+  }
+
+  /* ============ TREATMENTS GRID ============ */
+  .treatments {
+    background: var(--cream-deep);
+    padding: 120px 24px 110px;
+    position: relative;
+  }
+  .treatments-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .treatments-head {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+  .treatments-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 18px;
+  }
+  .treatments-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+  .treatments-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 4.6vw, 60px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    color: var(--forest);
+    text-wrap: balance;
+  }
+  .treatments-title em { font-style: italic; color: var(--terracotta); }
+  .treatments-lede {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+    text-wrap: pretty;
+    max-width: 42ch;
+    padding-bottom: 6px;
+  }
+
+  /* Filter chips */
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(45, 74, 62, 0.12);
+  }
+  .filter-chip {
+    background: transparent;
+    border: 1px solid rgba(45, 74, 62, 0.18);
+    color: var(--forest);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .filter-chip:hover {
+    border-color: var(--forest);
+  }
+  .filter-chip.active {
+    background: var(--forest);
+    color: var(--cream);
+    border-color: var(--forest);
+  }
+  .filter-chip-count {
+    font-size: 12px;
+    opacity: 0.6;
+    font-weight: 500;
+  }
+  .filter-chip.active .filter-chip-count { opacity: 0.7; }
+
+  /* Treatment grid */
+  .tx-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .tx-card {
+    background: #FFFDF8;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1),
+                box-shadow 0.35s ease;
+    border: 1px solid rgba(45, 74, 62, 0.08);
+  }
+  .tx-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 22px 48px -20px rgba(31, 52, 41, 0.22);
+  }
+  .tx-card.hide { display: none; }
+  .tx-img {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream-deep);
+  }
+  .tx-img-placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+  .tx-img-placeholder .ph-label {
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(45, 74, 62, 0.55);
+    background: rgba(247, 242, 234, 0.85);
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  .tx-cat-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--forest);
+    background: rgba(247, 242, 234, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+  .tx-body {
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+  .tx-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.15;
+    letter-spacing: -0.012em;
+    color: var(--forest);
+  }
+  .tx-desc {
+    font-size: 13.5px;
+    line-height: 1.45;
+    color: var(--muted);
+    text-wrap: pretty;
+    margin-bottom: 6px;
+  }
+  .tx-foot {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid rgba(45, 74, 62, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tx-price {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--forest);
+  }
+  .tx-price-from {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 12px;
+    margin-right: 2px;
+  }
+  .tx-arrow {
+    color: var(--forest);
+    opacity: 0.55;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .tx-card:hover .tx-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+    color: var(--terracotta);
+  }
+
+  .tx-foot-note {
+    margin-top: 44px;
+    text-align: center;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .tx-foot-note a {
+    color: var(--terracotta);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+
+  /* ============ BOOKING ============ */
+  .booking { background: var(--cream); padding: 120px 24px 110px; }
+  .booking-inner { max-width: 1280px; margin: 0 auto; }
+  .booking-head { text-align: center; margin-bottom: 36px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .booking-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--terracotta); margin-bottom: 18px;
+  }
+  .booking-eyebrow::before, .booking-eyebrow::after {
+    content: ""; width: 24px; height: 1px; background: var(--terracotta);
+  }
+  .booking-title {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(40px, 4.6vw, 60px); line-height: 1.02;
+    letter-spacing: -0.022em; color: var(--forest); text-wrap: balance;
+  }
+  .booking-title em { font-style: italic; color: var(--terracotta); }
+  .booking-lede {
+    margin-top: 18px; font-size: 16.5px; line-height: 1.55;
+    color: var(--muted); text-wrap: pretty;
+  }
+
+  .booking-reassure {
+    display: flex; justify-content: center; align-items: center;
+    gap: 18px; flex-wrap: wrap;
+    font-size: 13px; color: var(--forest); opacity: 0.78;
+    margin-bottom: 44px;
+  }
+  .booking-reassure-item { display: inline-flex; align-items: center; gap: 6px; }
+  .booking-reassure-sep { width: 3px; height: 3px; background: var(--forest); opacity: 0.4; border-radius: 50%; }
+
+  .booking-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    align-items: stretch;
+  }
+  .bk-card {
+    border-radius: 22px; padding: 32px 28px;
+    display: flex; flex-direction: column;
+    border: 1px solid rgba(45,74,62,0.10);
+    background: #FFFDF8;
+  }
+  .bk-card-num {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+    font-size: 14px; color: var(--terracotta); margin-bottom: 14px;
+  }
+  .bk-card.dark .bk-card-num { color: #E8A88E; }
+  .bk-title {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: 26px; line-height: 1.1; letter-spacing: -0.018em;
+    color: var(--forest); margin-bottom: 8px;
+  }
+  .bk-title em { font-style: italic; }
+  .bk-sub { font-size: 14px; line-height: 1.5; color: var(--muted); margin-bottom: 22px; }
+  .bk-card.dark { background: var(--forest-deep); border-color: var(--forest-deep); color: var(--cream); }
+  .bk-card.dark .bk-title { color: var(--cream); }
+  .bk-card.dark .bk-sub { color: rgba(247,242,234,0.72); }
+
+  /* Calendar */
+  .cal-month {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .cal-month-name {
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px;
+    color: var(--forest);
+  }
+  .cal-nav { display: inline-flex; gap: 4px; }
+  .cal-nav button {
+    width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(45,74,62,0.15);
+    background: transparent; cursor: pointer; color: var(--forest);
+    display: grid; place-items: center;
+  }
+  .cal-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px;
+    margin-bottom: 16px;
+  }
+  .cal-dow {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted);
+    text-align: center; padding: 6px 0;
+  }
+  .cal-day {
+    aspect-ratio: 1/1; display: grid; place-items: center;
+    font-size: 12.5px; font-weight: 500; color: var(--forest);
+    border-radius: 8px; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cal-day.muted { color: rgba(45,74,62,0.25); cursor: default; }
+  .cal-day.full { color: rgba(45,74,62,0.3); text-decoration: line-through; cursor: not-allowed; }
+  .cal-day.avail:hover { background: rgba(45,74,62,0.08); }
+  .cal-day.selected { background: var(--forest); color: var(--cream); }
+
+  .cal-slots-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    margin: 8px 0 10px;
+  }
+  .cal-slots { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+  .cal-slot {
+    font-size: 12.5px; font-weight: 500; color: var(--forest);
+    background: transparent; border: 1px solid rgba(45,74,62,0.18);
+    padding: 7px 12px; border-radius: 999px; cursor: pointer;
+  }
+  .cal-slot:hover { border-color: var(--forest); }
+  .cal-slot.selected { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+
+  .bk-btn {
+    margin-top: auto;
+    background: var(--terracotta); color: #FFF8EE;
+    border: none; padding: 14px 18px; border-radius: 999px;
+    font-family: inherit; font-size: 14.5px; font-weight: 600;
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .bk-btn:hover { background: var(--terracotta-deep); }
+
+  /* Form */
+  .bk-form { display: flex; flex-direction: column; gap: 10px; }
+  .bk-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .bk-input, .bk-select, .bk-textarea {
+    background: var(--cream); border: 1px solid rgba(45,74,62,0.16);
+    border-radius: 10px; padding: 11px 14px;
+    font-family: inherit; font-size: 13.5px; color: var(--ink);
+    width: 100%; outline: none;
+    transition: border-color 0.2s;
+  }
+  .bk-input:focus, .bk-select:focus, .bk-textarea:focus { border-color: var(--forest); }
+  .bk-textarea { resize: vertical; min-height: 64px; font-family: inherit; }
+  .bk-checkbox-row {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 12px; color: var(--muted); line-height: 1.45;
+    margin: 4px 0 6px;
+  }
+  .bk-checkbox-row input { margin-top: 2px; accent-color: var(--forest); }
+  .bk-checkbox-row a { color: var(--forest); }
+
+  /* Direct contact card */
+  .bk-direct-block {
+    display: flex; flex-direction: column; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .bk-direct {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 18px; border-radius: 14px;
+    text-decoration: none; color: var(--cream);
+    transition: transform 0.2s, background 0.2s;
+  }
+  .bk-direct:hover { transform: translateY(-2px); }
+  .bk-wa { background: #25D366; color: #FFF; }
+  .bk-wa:hover { background: #1FB856; }
+  .bk-tel {
+    background: rgba(247,242,234,0.10);
+    border: 1px solid rgba(247,242,234,0.18);
+  }
+  .bk-tel:hover { background: rgba(247,242,234,0.16); }
+  .bk-direct-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(255,255,255,0.18); display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .bk-tel .bk-direct-icon { background: rgba(247,242,234,0.10); }
+  .bk-direct-text { display: flex; flex-direction: column; }
+  .bk-direct-num {
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px;
+    letter-spacing: -0.01em; line-height: 1.1;
+  }
+  .bk-direct-foot { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+
+  .bk-divider {
+    height: 1px; background: rgba(247,242,234,0.14);
+    margin: 4px 0 14px;
+  }
+  .bk-fineprint {
+    font-size: 12px; line-height: 1.5; color: rgba(247,242,234,0.7);
+  }
+  .bk-fineprint strong { color: var(--cream); font-weight: 500; }
+
+  @media (max-width: 1000px) {
+    .booking-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .booking { padding: 80px 20px 70px; }
+    .bk-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 1100px) {
+    .tx-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 850px) {
+    .treatments-head { grid-template-columns: 1fr; gap: 24px; }
+    .tx-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .treatments { padding: 80px 20px 70px; }
+  }
+</style>
+</head>
+<body style="">
+
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"></path></svg>
+      +34 637 68 79 34
+    </span>
+    <span class="topbar-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      Lun–Vie 9:30–20:30 · Sáb 10:00–14:00
+    </span>
+    <span class="topbar-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      C/ Martín de los Heros 63 · Argüelles, Madrid
+    </span>
+    <span class="topbar-spacer"></span>
+    <span class="topbar-socials">
+      <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+      <a href="#" aria-label="TikTok"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.66a8.16 8.16 0 0 0 4.77 1.52V6.74a4.85 4.85 0 0 1-1.84-.05z"></path></svg></a>
+    </span>
+    <span class="topbar-divider"></span>
+    <span class="topbar-item" style="opacity: 0.85;">Atendemos en español&nbsp;e inglés</span>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <a href="#" class="brand">
+      <span class="brand-mark">C</span>
+      <span class="brand-name">Clínica <em>Cemeresi</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#equipo">Equipo médico</a>
+      <a href="#precios" style=""><br></a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="blog.html">Blog</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <span class="nav-spacer"></span>
+    <div class="nav-cta-row">
+      <a href="tel:+34637687934" class="nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"></path></svg>
+        Llámanos
+      </a>
+      <a href="#reservar" class="btn-primary">
+        Reservar cita
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+    </div>
+  </nav>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero-wrap">
+  <div class="hero">
+    <video class="hero-video" autoplay="" muted="" loop="" playsinline="" poster="https://cdn.jsdelivr.net/gh/achaconpass/CEMERESI@main/hero-poster.jpg">
+      <source src="https://cdn.jsdelivr.net/gh/achaconpass/CEMERESI@main/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+
+    <div class="hero-content">
+      <div class="badge" style="">
+        <span class="badge-dot"></span>
+        Aceptamos nuevos pacientes
+        <span class="badge-sep">·</span>
+        <span style="opacity: 0.85;">Cita en 48h</span>
+      </div>
+
+      <h1 class="headline">Cuidarte bien, <em>en serio</em>.</h1>
+
+      <p class="subhead" style="">
+        Cinco disciplinas, una sola filosofía: tu salud por delante. Cirugía capilar, medicina estética, fisioterapia, psicología y formación — bajo un mismo equipo.
+      </p>
+
+      <div class="cta-row">
+        <a href="#reservar" class="btn-cta btn-cta-terracotta">
+          Reservar primera consulta
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+        <a href="https://wa.me/34637687934" class="btn-cta btn-cta-glass" style="">
+          <span class="wa-icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"></path></svg>
+          </span>Contactar por WhatsApp
+        </a>
+      </div>
+
+      <div class="reassure">
+        <span class="reassure-item" style="color: rgb(248, 244, 239); font-weight: 600;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Sin compromiso
+        </span>
+        <span class="reassure-sep"></span>
+        <span class="reassure-item" style="color: rgb(248, 244, 239); font-weight: 600;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Presupuesto cerrado tras la consulta
+        </span>
+        <span class="reassure-sep"></span>
+        <span class="reassure-item" style="color: rgb(248, 244, 239); font-weight: 600;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Financiación hasta 24 meses
+        </span>
+      </div>
+    </div>
+
+    <!-- Glass card: social proof -->
+    <div class="glass-card glass-card-left">
+      <div class="avatars">
+        <div class="avatar avatar-1"></div>
+        <div class="avatar avatar-2"></div>
+        <div class="avatar avatar-3"></div>
+        <div class="avatar avatar-4"></div>
+        <div class="avatar avatar-more">+8k</div>
+      </div>
+      <div class="glass-stat">8.400+ pacientes</div>
+      <div class="glass-meta">Atendidas desde 2009</div>
+      <div class="glass-rating">
+        <span class="stars">★★★★★</span>
+        <span><strong style="color:#FAF6EE;font-weight:600">4,9</strong> / 5 en Google · 612 reseñas</span>
+      </div>
+    </div>
+
+    <!-- Glass card: welcome offer -->
+    <div class="glass-card glass-card-right">
+      <div class="eyebrow">Oferta de bienvenida</div>
+      <div class="glass-offer" style="">Tu primera consulta diagnóstica, <em>gratuita</em>.</div>
+      <div class="glass-fineprint" style="">Hasta el 30 de junio · Reserva en 1 minuto.</div>
+      <a href="#reservar" class="glass-link">
+        Activar la oferta
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Descubre más</span>
+      <span class="scroll-cue-line"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES — 5 áreas ============ -->
+<section class="services" id="servicios">
+  <div class="services-inner">
+
+    <header class="services-head">
+      <div>
+        <span class="services-eyebrow">Áreas de especialidad</span>
+        <h2 class="services-title">Cinco disciplinas, <em>una sola</em> historia clínica.</h2>
+      </div>
+      <p class="services-lede">
+        En Cemeresi creemos que la salud y la imagen no se cuidan por separado. Por eso reunimos <strong>cirugía capilar, medicina estética, fisioterapia, psicología y formación</strong> en un mismo equipo — y trabajamos juntos para que tu plan tenga sentido de principio a fin.
+      </p>
+    </header>
+
+    <div class="service-grid">
+
+      <!-- 1. Cirugía Capilar (large + featured) -->
+      <a href="#cirugia-capilar" class="service-card featured">
+        <div class="service-num">01 — Estrella de la casa</div>
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8 2 5 5 5 9c0 2 1 3 1 5 0 2-1 3-1 5"></path>
+            <path d="M12 2c4 0 7 3 7 7 0 2-1 3-1 5 0 2 1 3 1 5"></path>
+            <path d="M9 4c-1 1.5-1.5 3-1.5 5"></path>
+            <path d="M15 4c1 1.5 1.5 3 1.5 5"></path>
+            <path d="M12 2v6"></path>
+          </svg>
+        </div>
+        <h3 class="service-name">Cirugía <em>capilar</em></h3>
+        <p class="service-desc">Injerto capilar técnica FUE con resultados naturales. Estudio personalizado, anestesia local y un plan de seguimiento de 12 meses incluido.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-tag="fue" role="link" tabindex="0">FUE</span>
+          <span class="service-tag" data-tag="densificacion" role="link" tabindex="0">Densificación</span>
+          <span class="service-tag" data-tag="cejas" role="link" tabindex="0">Cejas</span>
+          <span class="service-tag" data-tag="barba" role="link" tabindex="0">Barba</span>
+        </div>
+        <div class="service-cta">
+          <span class="service-meta-label">Desde 2.900 € · Financiable 24m</span>
+          <span class="service-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- 2. Medicina Estética (large) -->
+      <a href="#medicina-estetica" class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4"></path>
+            <path d="M12 18v4"></path>
+            <path d="M4.93 4.93l2.83 2.83"></path>
+            <path d="M16.24 16.24l2.83 2.83"></path>
+            <path d="M2 12h4"></path>
+            <path d="M18 12h4"></path>
+            <path d="M4.93 19.07l2.83-2.83"></path>
+            <path d="M16.24 7.76l2.83-2.83"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </div>
+        <h3 class="service-name">Medicina <em>estética</em></h3>
+        <p class="service-desc">Tratamientos faciales y corporales con criterio médico. Diagnóstico antes que producto: te decimos lo que necesitas y, sobre todo, lo que no.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-tag="botox" role="link" tabindex="0">Bótox</span>
+          <span class="service-tag" data-tag="acido-hialuronico" role="link" tabindex="0">Ácido hialurónico</span>
+          <span class="service-tag" data-tag="laser-co2" role="link" tabindex="0">Láser CO2</span>
+          <span class="service-tag" data-tag="hilos-tensores" role="link" tabindex="0">Hilos tensores</span>
+          <span class="service-tag" data-tag="lipolaser" role="link" tabindex="0">Lipoláser</span>
+          <span class="service-tag" data-tag="indiba" role="link" tabindex="0">INDIBA</span>
+        </div>
+        <div class="service-cta">
+          <span class="service-meta-label">Consulta diagnóstica gratuita</span>
+          <span class="service-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- 3. Fisioterapia -->
+      <a href="#fisioterapia" class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6.5 6.5l11 11"></path>
+            <path d="M21 21l-1-1"></path>
+            <path d="M3 3l1 1"></path>
+            <path d="M18 22l4-4"></path>
+            <path d="M2 6l4-4"></path>
+            <path d="M3 10l7-7"></path>
+            <path d="M14 21l7-7"></path>
+          </svg>
+        </div>
+        <h3 class="service-name">Fisio<em>terapia</em></h3>
+        <p class="service-desc">Lesiones, postura, suelo pélvico y recuperación post-cirugía. Sesiones de 50 min sin solapamiento de pacientes.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-tag="manual" role="link" tabindex="0">Manual</span>
+          <span class="service-tag" data-tag="suelo-pelvico" role="link" tabindex="0">Suelo pélvico</span>
+          <span class="service-tag" data-tag="deportiva" role="link" tabindex="0">Deportiva</span>
+        </div>
+        <div class="service-cta">
+          <span class="service-meta-label">Sesión 60€ · Bonos disponibles</span>
+          <span class="service-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- 4. Psicología -->
+      <a href="#psicologia" class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11a3 3 0 1 1 0-6 3 3 0 0 1 3 3v9a3 3 0 0 1-3 3 3 3 0 0 1-3-3"></path>
+            <path d="M15 13a3 3 0 1 0 0-6 3 3 0 0 0-3 3"></path>
+            <path d="M12 14a3 3 0 1 0 3 3 3 3 0 0 0-3-3"></path>
+          </svg>
+        </div>
+        <h3 class="service-name">Psico<em>logía</em></h3>
+        <p class="service-desc">Acompañamiento clínico para ansiedad, autoestima e imagen corporal. Presencial en clínica u online, sin lista de espera.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-tag="adultos" role="link" tabindex="0">Adultos</span>
+          <span class="service-tag" data-tag="imagen-corporal" role="link" tabindex="0">Imagen corporal</span>
+          <span class="service-tag" data-tag="online" role="link" tabindex="0">Online</span>
+        </div>
+        <div class="service-cta">
+          <span class="service-meta-label">Primera sesión 45€</span>
+          <span class="service-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- 5. Formación -->
+      <a href="#formacion" class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6"></path>
+            <path d="M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+        </div>
+        <h3 class="service-name">Forma<em>ción</em></h3>
+        <p class="service-desc">Cursos prácticos para profesionales sanitarios: medicina estética, técnicas de injerto y abordaje del paciente. Plazas limitadas.</p>
+        <div class="service-tags">
+          <span class="service-tag" data-tag="profesionales" role="link" tabindex="0">Solo profesionales</span>
+          <span class="service-tag" data-tag="practica-real" role="link" tabindex="0">Práctica real</span>
+        </div>
+        <div class="service-cta">
+          <span class="service-meta-label">Próxima edición · Octubre 2026</span>
+          <span class="service-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="services-foot">
+      <p class="services-foot-text">
+        <strong>¿No sabes por dónde empezar?</strong> Nuestra consulta diagnóstica es gratuita: te orientamos sin compromiso, aunque acabes no contratando nada.
+      </p>
+      <a href="#reservar" class="services-foot-link">
+        Reservar diagnóstico gratis
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TREATMENTS GRID ============ -->
+<section class="treatments" id="tratamientos">
+  <div class="treatments-inner">
+
+    <header class="treatments-head">
+      <div>
+        <span class="treatments-eyebrow">Tratamientos</span>
+        <h2 class="treatments-title">Lo que más nos piden <em>esta temporada</em>.</h2>
+      </div>
+      <p class="treatments-lede">
+        Una muestra de los más populares. Si no ves el tuyo, pregúntanos — hacemos más de 40 tratamientos distintos.
+      </p>
+    </header>
+
+    <div class="filter-row" role="tablist" aria-label="Categorías de tratamientos">
+      <button class="filter-chip active" data-filter="todos" role="tab" aria-selected="true">Todos <span class="filter-chip-count">16</span></button>
+      <button class="filter-chip" data-filter="capilar" role="tab" aria-selected="false">Capilar <span class="filter-chip-count">3</span></button>
+      <button class="filter-chip" data-filter="facial" role="tab" aria-selected="false">Estética facial <span class="filter-chip-count">6</span></button>
+      <button class="filter-chip" data-filter="corporal" role="tab" aria-selected="false">Estética corporal <span class="filter-chip-count">4</span></button>
+      <button class="filter-chip" data-filter="fisio" role="tab" aria-selected="false">Fisioterapia <span class="filter-chip-count">2</span></button>
+      <button class="filter-chip" data-filter="psico" role="tab" aria-selected="false">Psicología <span class="filter-chip-count">1</span></button>
+    </div>
+
+    <div class="tx-grid" id="txGrid">
+
+      <a href="#tx-fue" class="tx-card" data-cat="capilar">
+        <div class="tx-img"><span class="tx-cat-tag">Capilar</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #2D4A3E 0%, #3A5C4D 100%);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · INJERTO FUE</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Injerto capilar FUE</h3><p class="tx-desc">Recupera tu pelo con resultados naturales.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>2.900€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-densif" class="tx-card" data-cat="capilar">
+        <div class="tx-img"><span class="tx-cat-tag">Capilar</span><div class="tx-img-placeholder" style="background: repeating-linear-gradient(135deg, #2D4A3E 0px, #2D4A3E 6px, #355446 6px, #355446 12px);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · DENSIFICACIÓN</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Densificación</h3><p class="tx-desc">Más densidad sin pasar por una cirugía completa.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>1.200€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-cejas" class="tx-card" data-cat="capilar">
+        <div class="tx-img"><span class="tx-cat-tag">Capilar</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #C97455 0%, #A85A40 100%);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · INJERTO CEJAS</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Injerto de cejas</h3><p class="tx-desc">Cejas pobladas y bien definidas.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>1.800€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-botox" class="tx-card" data-cat="facial">
+        <div class="tx-img"><span class="tx-cat-tag">Estética facial</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #EFE7D8 0%, #D9CDB7 100%);"><span class="ph-label">FOTO · BÓTOX</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Bótox</h3><p class="tx-desc">Adiós a las arrugas de expresión sin perder naturalidad.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>240€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-acidoh" class="tx-card" data-cat="facial">
+        <div class="tx-img"><span class="tx-cat-tag">Estética facial</span><div class="tx-img-placeholder" style="background: repeating-linear-gradient(45deg, #EFE7D8 0px, #EFE7D8 8px, #E5DAC3 8px, #E5DAC3 16px);"><span class="ph-label">FOTO · ÁCIDO HIALURÓNICO</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Ácido hialurónico</h3><p class="tx-desc">Volumen e hidratación donde lo necesitas.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>320€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-hilos" class="tx-card" data-cat="facial">
+        <div class="tx-img"><span class="tx-cat-tag">Estética facial</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #2D4A3E 0%, #1F3429 100%);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · HILOS TENSORES</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Hilos tensores</h3><p class="tx-desc">Lifting facial sin pasar por quirófano.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>450€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-laserco2" class="tx-card" data-cat="facial">
+        <div class="tx-img"><span class="tx-cat-tag">Estética facial</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #C97455 0%, #B25E3F 100%);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · LÁSER CO2</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Láser CO2</h3><p class="tx-desc">Renueva tu piel desde dentro.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>280€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-ojeras" class="tx-card" data-cat="facial">
+        <div class="tx-img"><span class="tx-cat-tag">Estética facial</span><div class="tx-img-placeholder" style="background: repeating-linear-gradient(135deg, #F7F2EA 0px, #F7F2EA 6px, #EFE7D8 6px, #EFE7D8 12px);"><span class="ph-label">FOTO · OJERAS</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Tratamiento de ojeras</h3><p class="tx-desc">Mirada descansada en una sola sesión.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>290€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-plasma" class="tx-card" data-cat="facial">
+        <div class="tx-img"><span class="tx-cat-tag">Estética facial</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #3A5C4D 0%, #2D4A3E 100%);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · PLASMA PEN</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Plasma Pen</h3><p class="tx-desc">Tensa y rejuvenece sin agujas.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>350€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-lipolaser" class="tx-card" data-cat="corporal">
+        <div class="tx-img"><span class="tx-cat-tag">Estética corporal</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #C97455 0%, #E89878 100%);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · LIPOLÁSER</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Lipoláser</h3><p class="tx-desc">Reduce grasa localizada sin quirófano.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>600€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-indiba" class="tx-card" data-cat="corporal">
+        <div class="tx-img"><span class="tx-cat-tag">Estética corporal</span><div class="tx-img-placeholder" style="background: repeating-linear-gradient(45deg, #2D4A3E 0px, #2D4A3E 8px, #355446 8px, #355446 16px);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · INDIBA</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">INDIBA</h3><p class="tx-desc">Reafirma y regenera con radiofrecuencia.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>90€<span style="font-weight:400;color:var(--muted);font-size:12px;">/sesión</span></span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-endolaser" class="tx-card" data-cat="corporal">
+        <div class="tx-img"><span class="tx-cat-tag">Estética corporal</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #1F3429 0%, #2D4A3E 100%);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · ENDOLÁSER LIFTEN</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Endoláser LIFTEN</h3><p class="tx-desc">Remodela y tensa la piel.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>1.500€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-linfatico" class="tx-card" data-cat="corporal">
+        <div class="tx-img"><span class="tx-cat-tag">Estética corporal</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #EFE7D8 0%, #D9CDB7 100%);"><span class="ph-label">FOTO · MASAJE LINFÁTICO</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Masaje linfático</h3><p class="tx-desc">Recuperación post-cirugía.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>60€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-suelo" class="tx-card" data-cat="fisio">
+        <div class="tx-img"><span class="tx-cat-tag">Fisioterapia</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #2D4A3E 0%, #4A6353 100%);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · SUELO PÉLVICO</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Suelo pélvico</h3><p class="tx-desc">Recupera tono y control sin tabúes.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>60€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-fisiodep" class="tx-card" data-cat="fisio">
+        <div class="tx-img"><span class="tx-cat-tag">Fisioterapia</span><div class="tx-img-placeholder" style="background: repeating-linear-gradient(135deg, #2D4A3E 0px, #2D4A3E 6px, #355446 6px, #355446 12px);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · FISIO DEPORTIVA</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Fisioterapia deportiva</h3><p class="tx-desc">Vuelve a entrenar sin dolor.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>60€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+      <a href="#tx-imagen" class="tx-card" data-cat="psico">
+        <div class="tx-img"><span class="tx-cat-tag">Psicología</span><div class="tx-img-placeholder" style="background: linear-gradient(135deg, #C97455 0%, #8B5A45 100%);"><span class="ph-label" style="background:rgba(247,242,234,0.95);">FOTO · IMAGEN CORPORAL</span></div></div>
+        <div class="tx-body"><h3 class="tx-name">Imagen corporal</h3><p class="tx-desc">Trabaja tu relación con tu cuerpo.</p><div class="tx-foot"><span class="tx-price"><span class="tx-price-from">Desde </span>45€</span><span class="tx-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div></div>
+      </a>
+
+    </div>
+
+    <p class="tx-foot-note">
+      ¿No ves tu tratamiento? Hacemos más de 40 — <a href="https://wa.me/34637687934">escríbenos por WhatsApp</a> y te orientamos sin compromiso.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section class="booking" id="reservar">
+  <div class="booking-inner">
+
+    <header class="booking-head">
+      <span class="booking-eyebrow">Reserva tu cita</span>
+      <h2 class="booking-title">Pide cita como te resulte <em>más fácil</em>.</h2>
+      <p class="booking-lede">Tres caminos. Todos llegan al mismo sitio: una conversación honesta sobre qué necesita tu piel.</p>
+    </header>
+
+    <div class="booking-reassure">
+      <span class="booking-reassure-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Sin compromiso
+      </span>
+      <span class="booking-reassure-sep"></span>
+      <span class="booking-reassure-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+        Primera valoración gratuita
+      </span>
+      <span class="booking-reassure-sep"></span>
+      <span class="booking-reassure-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Confidencialidad médica · RGPD
+      </span>
+    </div>
+
+    <div class="booking-grid">
+
+      <!-- 01 · Calendario -->
+      <article class="bk-card">
+        <div class="bk-card-num">01 / Calendario</div>
+        <h3 class="bk-title">Elige día y <em>hora</em></h3>
+        <p class="bk-sub">Calendario en directo con disponibilidad real. Reserva en 30 segundos.</p>
+
+        <div class="cal-month">
+          <span class="cal-month-name">Mayo 2026</span>
+          <span class="cal-nav">
+            <button aria-label="Mes anterior">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button aria-label="Mes siguiente">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </span>
+        </div>
+
+        <div class="cal-grid">
+          <div class="cal-dow">L</div><div class="cal-dow">M</div><div class="cal-dow">X</div><div class="cal-dow">J</div><div class="cal-dow">V</div><div class="cal-dow">S</div><div class="cal-dow">D</div>
+          <div class="cal-day muted">28</div><div class="cal-day muted">29</div><div class="cal-day muted">30</div><div class="cal-day avail">1</div><div class="cal-day full">2</div><div class="cal-day muted">3</div><div class="cal-day muted">4</div>
+          <div class="cal-day avail">5</div><div class="cal-day full">6</div><div class="cal-day avail">7</div><div class="cal-day avail">8</div><div class="cal-day full">9</div><div class="cal-day muted">10</div><div class="cal-day muted">11</div>
+          <div class="cal-day avail">12</div><div class="cal-day avail">13</div><div class="cal-day selected">14</div><div class="cal-day full">15</div><div class="cal-day avail">16</div><div class="cal-day muted">17</div><div class="cal-day muted">18</div>
+          <div class="cal-day full">19</div><div class="cal-day avail">20</div><div class="cal-day avail">21</div><div class="cal-day avail">22</div><div class="cal-day full">23</div><div class="cal-day muted">24</div><div class="cal-day muted">25</div>
+          <div class="cal-day avail">26</div><div class="cal-day avail">27</div><div class="cal-day avail">28</div><div class="cal-day full">29</div><div class="cal-day avail">30</div><div class="cal-day muted">31</div><div class="cal-day muted">1</div>
+        </div>
+
+        <div class="cal-slots-label">Jueves 14 · horas disponibles</div>
+        <div class="cal-slots">
+          <button class="cal-slot">10:00</button>
+          <button class="cal-slot selected">11:30</button>
+          <button class="cal-slot">13:00</button>
+          <button class="cal-slot">16:30</button>
+          <button class="cal-slot">18:00</button>
+        </div>
+
+        <button class="bk-btn">
+          Continuar
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </article>
+
+      <!-- 02 · Formulario -->
+      <article class="bk-card">
+        <div class="bk-card-num">02 / Solicitud</div>
+        <h3 class="bk-title">Cuéntanos qué <em>necesitas</em></h3>
+        <p class="bk-sub">Para tratamientos específicos o cirugías. Te llamamos en menos de 24h laborables.</p>
+
+        <form class="bk-form" onsubmit="event.preventDefault(); this.querySelector('.bk-btn').textContent='¡Recibido! Te llamamos pronto.';">
+          <input class="bk-input" type="text" placeholder="Nombre y apellidos" required>
+          <div class="bk-row">
+            <input class="bk-input" type="tel" placeholder="Teléfono" required>
+            <input class="bk-input" type="email" placeholder="Email" required>
+          </div>
+          <select class="bk-select" required>
+            <option value="">Tratamiento de interés</option>
+            <option>Aún no lo sé</option>
+            <option>Cirugía capilar</option>
+            <option>Medicina estética facial</option>
+            <option>Estética corporal</option>
+            <option>Fisioterapia</option>
+            <option>Psicología</option>
+            <option>Otro</option>
+          </select>
+          <textarea class="bk-textarea" placeholder="Cuéntanos brevemente (opcional)"></textarea>
+          <label class="bk-checkbox-row">
+            <input type="checkbox" required>
+            <span>He leído y acepto la <a href="#">política de privacidad</a>. Mis datos solo se usan para contactarme.</span>
+          </label>
+          <button class="bk-btn" type="submit">
+            Enviar y que me llamen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </article>
+
+      <!-- 03 · Directo -->
+      <article class="bk-card dark">
+        <div class="bk-card-num">03 / Directo</div>
+        <h3 class="bk-title">Habla con nosotras <em>ahora</em></h3>
+        <p class="bk-sub">Si prefieres una conversación directa: WhatsApp o teléfono.</p>
+
+        <div class="bk-direct-block">
+          <a href="https://wa.me/34637687934" class="bk-direct bk-wa">
+            <span class="bk-direct-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+            </span>
+            <span class="bk-direct-text">
+              <span class="bk-direct-num">+34 637 687 934</span>
+              <span class="bk-direct-foot">Respuesta en menos de 30 min</span>
+            </span>
+          </a>
+
+          <a href="tel:+34637687934" class="bk-direct bk-tel">
+            <span class="bk-direct-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </span>
+            <span class="bk-direct-text">
+              <span class="bk-direct-num">+34 637 68 79 34</span>
+              <span class="bk-direct-foot">Lun–Vie 9:30–20:30 · Sáb 10:00–14:00</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="bk-divider"></div>
+        <p class="bk-fineprint">
+          <strong>¿Vienes de fuera de Madrid?</strong> Tenemos consulta exprés y videoconsulta — pídela por cualquiera de los tres canales.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Service tag → blog navigation
+  document.querySelectorAll('.service-tag[data-tag]').forEach(tag => {
+    const go = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = 'blog.html?tag=' + tag.dataset.tag;
+    };
+    tag.addEventListener('click', go);
+    tag.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') go(e); });
+  });
+  (function() {
+    const chips = document.querySelectorAll('.filter-chip');
+    const cards = document.querySelectorAll('#txGrid .tx-card');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-selected', 'false'); });
+        chip.classList.add('active');
+        chip.setAttribute('aria-selected', 'true');
+        const filter = chip.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'todos' || card.dataset.cat === filter) card.classList.remove('hide');
+          else card.classList.add('hide');
+        });
+      });
+    });
+  })();
+  (function() {
+    // Calendar day selection
+    const days = document.querySelectorAll('.cal-day.avail, .cal-day.selected');
+    days.forEach(d => {
+      d.addEventListener('click', () => {
+        document.querySelectorAll('.cal-day').forEach(x => x.classList.remove('selected'));
+        d.classList.add('selected');
+      });
+    });
+    // Slot selection
+    const slots = document.querySelectorAll('.cal-slot');
+    slots.forEach(s => {
+      s.addEventListener('click', e => {
+        e.preventDefault();
+        slots.forEach(x => x.classList.remove('selected'));
+        s.classList.add('selected');
+      });
+    });
+  })();
+</script>
+
+
+
+</body></html>

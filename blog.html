@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog · Clínica Cemeresi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F2EA;
+    --cream-deep: #EFE7D8;
+    --forest: #2D4A3E;
+    --forest-deep: #1F3429;
+    --terracotta: #C97455;
+    --terracotta-deep: #B25E3F;
+    --ink: #1A1F1C;
+    --muted: #6B7370;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Nav (slim version) */
+  .nav-wrap { background: var(--cream); border-bottom: 1px solid rgba(45,74,62,0.10); }
+  .nav {
+    max-width: 1280px; margin: 0 auto; padding: 22px 32px;
+    display: flex; align-items: center; gap: 40px;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand-mark {
+    width: 38px; height: 38px; border-radius: 50%; background: var(--forest);
+    color: var(--cream); display: grid; place-items: center;
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 18px; font-style: italic;
+  }
+  .brand-name {
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px;
+    letter-spacing: -0.015em; color: var(--forest);
+  }
+  .brand-name em { font-style: italic; font-weight: 400; }
+  .nav-back {
+    margin-left: auto;
+    color: var(--forest); text-decoration: none; font-size: 14.5px; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .nav-back:hover { color: var(--terracotta); }
+
+  /* Header */
+  .blog-head {
+    max-width: 1280px; margin: 0 auto;
+    padding: 90px 32px 50px;
+  }
+  .blog-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--terracotta);
+    margin-bottom: 18px;
+  }
+  .blog-eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--terracotta); }
+  .blog-title {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(44px, 5.5vw, 72px); line-height: 1; letter-spacing: -0.025em;
+    color: var(--forest); text-wrap: balance; max-width: 18ch;
+  }
+  .blog-title em { font-style: italic; color: var(--terracotta); }
+  .blog-lede {
+    margin-top: 18px; font-size: 17px; line-height: 1.55;
+    color: var(--muted); max-width: 56ch; text-wrap: pretty;
+  }
+
+  /* Active tag banner */
+  .tag-banner {
+    max-width: 1280px; margin: 0 auto 28px;
+    padding: 0 32px;
+    display: none;
+  }
+  .tag-banner.show { display: block; }
+  .tag-banner-inner {
+    background: var(--forest); color: var(--cream);
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .tag-banner-text {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .tag-banner-text strong {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-style: italic; color: #F4D082;
+    font-size: 17px;
+  }
+  .tag-banner-clear {
+    color: var(--cream); text-decoration: none;
+    font-size: 13px; font-weight: 500;
+    border: 1px solid rgba(247,242,234,0.4);
+    padding: 7px 14px; border-radius: 999px;
+    transition: background 0.2s;
+  }
+  .tag-banner-clear:hover { background: rgba(247,242,234,0.12); }
+
+  /* Tag rail */
+  .tag-rail-wrap {
+    max-width: 1280px; margin: 0 auto;
+    padding: 0 32px 36px;
+  }
+  .tag-rail-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .tag-rail {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .tag-pill {
+    background: transparent; border: 1px solid rgba(45,74,62,0.18);
+    color: var(--forest); font-family: inherit; font-size: 13.5px;
+    font-weight: 500; padding: 8px 14px; border-radius: 999px;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .tag-pill:hover { border-color: var(--forest); }
+  .tag-pill.active {
+    background: var(--terracotta); color: #FFF8EE;
+    border-color: var(--terracotta);
+  }
+  .tag-pill-count {
+    font-size: 11.5px; opacity: 0.55; font-weight: 500;
+  }
+  .tag-pill.active .tag-pill-count { opacity: 0.8; }
+
+  /* Posts grid */
+  .posts-wrap {
+    max-width: 1280px; margin: 0 auto;
+    padding: 12px 32px 110px;
+  }
+  .posts-meta {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .posts-count {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 17px; color: var(--forest);
+  }
+  .posts-sort {
+    font-size: 13px; color: var(--muted);
+  }
+
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 28px;
+  }
+  .post {
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .post:hover { transform: translateY(-4px); }
+  .post.hide { display: none; }
+
+  .post-img {
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    position: relative;
+    background: var(--cream-deep);
+  }
+  .post-img-ph {
+    position: absolute; inset: 0; display: grid; place-items: center;
+  }
+  .post-img-ph .ph-label {
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(45,74,62,0.55);
+    background: rgba(247,242,234,0.85); padding: 5px 10px; border-radius: 4px;
+  }
+  .post-cat {
+    position: absolute; top: 14px; left: 14px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
+    color: var(--forest); background: rgba(247,242,234,0.94);
+    backdrop-filter: blur(8px); padding: 5px 10px; border-radius: 999px;
+  }
+
+  .post-meta {
+    font-size: 12px; color: var(--muted);
+    letter-spacing: 0.04em; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .post-meta-dot { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; opacity: 0.5; }
+  .post-title {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: 22px; line-height: 1.2; letter-spacing: -0.018em;
+    color: var(--forest); text-wrap: balance;
+    margin-bottom: 10px;
+  }
+  .post-excerpt {
+    font-size: 14.5px; line-height: 1.5; color: var(--muted);
+    text-wrap: pretty;
+    margin-bottom: 14px;
+  }
+  .post-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: auto;
+  }
+  .post-tag {
+    font-size: 11px; font-weight: 500; color: var(--forest);
+    background: rgba(45,74,62,0.07); padding: 3px 8px; border-radius: 999px;
+  }
+
+  /* Empty state */
+  .empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+    font-size: 15px;
+    display: none;
+  }
+  .empty.show { display: block; }
+  .empty strong {
+    display: block;
+    font-family: 'Fraunces', serif; font-weight: 500; font-style: italic;
+    font-size: 22px; color: var(--forest);
+    margin-bottom: 8px;
+  }
+
+  /* Featured first card */
+  .post:first-child:not(.hide) {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    gap: 36px;
+    align-items: center;
+  }
+  .post:first-child:not(.hide) .post-img {
+    aspect-ratio: 5 / 4;
+    width: 50%;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .post:first-child:not(.hide) .post-title { font-size: 38px; line-height: 1.05; }
+  .post:first-child:not(.hide) .post-excerpt { font-size: 16px; max-width: 50ch; }
+
+  /* Newsletter inline */
+  .nl {
+    background: var(--forest); color: var(--cream);
+    border-radius: 18px; padding: 36px 40px;
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: 1fr auto; gap: 32px;
+    align-items: center;
+  }
+  .nl h3 {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: 28px; line-height: 1.1; letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .nl h3 em { font-style: italic; color: #F4D082; }
+  .nl p { font-size: 14.5px; color: rgba(247,242,234,0.78); max-width: 48ch; }
+  .nl-form { display: flex; gap: 8px; }
+  .nl-input {
+    background: rgba(247,242,234,0.10);
+    border: 1px solid rgba(247,242,234,0.22);
+    border-radius: 999px;
+    padding: 12px 18px;
+    color: var(--cream);
+    font-family: inherit; font-size: 14px;
+    width: 240px;
+    outline: none;
+  }
+  .nl-input::placeholder { color: rgba(247,242,234,0.5); }
+  .nl-input:focus { border-color: rgba(247,242,234,0.5); }
+  .nl-submit {
+    background: var(--terracotta); color: #FFF8EE;
+    border: none; border-radius: 999px;
+    padding: 12px 20px; font-family: inherit; font-size: 14px;
+    font-weight: 600; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nl-submit:hover { background: var(--terracotta-deep); }
+
+  @media (max-width: 900px) {
+    .posts { grid-template-columns: repeat(2, 1fr); }
+    .post:first-child:not(.hide) { flex-direction: column; }
+    .post:first-child:not(.hide) .post-img { width: 100%; aspect-ratio: 4/3; margin-bottom: 18px; }
+    .nl { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .posts { grid-template-columns: 1fr; }
+    .blog-head { padding: 60px 24px 32px; }
+    .posts-wrap, .tag-rail-wrap, .tag-banner { padding-left: 24px; padding-right: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Slim nav -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">C</span>
+      <span class="brand-name">Clínica <em>Cemeresi</em></span>
+    </a>
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Volver al inicio
+    </a>
+  </nav>
+</div>
+
+<!-- Header -->
+<header class="blog-head">
+  <span class="blog-eyebrow">Blog Cemeresi</span>
+  <h1 class="blog-title">Decir las cosas <em>como son</em>.</h1>
+  <p class="blog-lede">
+    Información honesta sobre tratamientos, recuperación y bienestar — escrita por nuestro equipo médico, sin promesas infladas. Filtra por tema y encuentra lo que buscas.
+  </p>
+</header>
+
+<!-- Active tag banner -->
+<div class="tag-banner" id="tagBanner">
+  <div class="tag-banner-inner">
+    <p class="tag-banner-text">Mostrando artículos sobre <strong id="tagBannerName">—</strong></p>
+    <a href="blog.html" class="tag-banner-clear">Quitar filtro</a>
+  </div>
+</div>
+
+<!-- Tag rail -->
+<div class="tag-rail-wrap">
+  <div class="tag-rail-label">Filtrar por tema</div>
+  <div class="tag-rail" id="tagRail"></div>
+</div>
+
+<!-- Posts -->
+<div class="posts-wrap">
+  <div class="posts-meta">
+    <span class="posts-count" id="postsCount">12 artículos</span>
+    <span class="posts-sort">Ordenado por más reciente</span>
+  </div>
+
+  <div class="posts" id="postsGrid">
+    <div class="empty" id="emptyState">
+      <strong>Aún no hay artículos sobre este tema.</strong>
+      Estamos preparando contenido. Mientras tanto, escríbenos por WhatsApp y te resolvemos la duda en directo.
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---- Data ----
+  const tagLabels = {
+    'fue': 'FUE',
+    'densificacion': 'Densificación capilar',
+    'cejas': 'Injerto de cejas',
+    'barba': 'Injerto de barba',
+    'botox': 'Bótox',
+    'acido-hialuronico': 'Ácido hialurónico',
+    'laser-co2': 'Láser CO2',
+    'hilos-tensores': 'Hilos tensores',
+    'lipolaser': 'Lipoláser',
+    'indiba': 'INDIBA',
+    'manual': 'Fisioterapia manual',
+    'suelo-pelvico': 'Suelo pélvico',
+    'deportiva': 'Fisioterapia deportiva',
+    'adultos': 'Psicología adultos',
+    'imagen-corporal': 'Imagen corporal',
+    'online': 'Sesiones online',
+    'profesionales': 'Para profesionales',
+    'practica-real': 'Práctica clínica'
+  };
+
+  const posts = [
+    { id: 1, cat: 'Capilar', title: 'FUE paso a paso: lo que nadie te cuenta del día después', excerpt: 'Hablamos del 1, 7 y 30. Qué es normal sentir, qué no, y cuándo llamar a la clínica.', date: '12 abr 2026', read: '6 min', tags: ['fue', 'densificacion'], img: 'linear-gradient(135deg, #2D4A3E 0%, #3A5C4D 100%)', dark: true },
+    { id: 2, cat: 'Estética facial', title: 'Bótox vs ácido hialurónico: cuándo elegir cada uno', excerpt: 'Una guía clara, sin tecnicismos, para entender qué hace cada uno y por qué a veces se combinan.', date: '8 abr 2026', read: '4 min', tags: ['botox', 'acido-hialuronico'], img: 'linear-gradient(135deg, #EFE7D8 0%, #D9CDB7 100%)' },
+    { id: 3, cat: 'Capilar', title: 'Densificación: la opción intermedia que poca gente conoce', excerpt: 'No todos los pacientes necesitan un injerto completo. Te contamos cuándo basta con densificar.', date: '2 abr 2026', read: '5 min', tags: ['densificacion', 'fue'], img: 'repeating-linear-gradient(135deg, #2D4A3E 0px, #2D4A3E 6px, #355446 6px, #355446 12px)', dark: true },
+    { id: 4, cat: 'Estética corporal', title: 'INDIBA: qué esperar (y qué no) de la radiofrecuencia', excerpt: 'Resultados reales, número de sesiones honestas y por qué no es la solución para todo.', date: '28 mar 2026', read: '5 min', tags: ['indiba', 'lipolaser'], img: 'repeating-linear-gradient(45deg, #2D4A3E 0px, #2D4A3E 8px, #355446 8px, #355446 16px)', dark: true },
+    { id: 5, cat: 'Estética facial', title: 'Hilos tensores en 2026: para quién sí, para quién no', excerpt: 'Indicaciones, contraindicaciones y por qué no son un sustituto del lifting quirúrgico.', date: '24 mar 2026', read: '7 min', tags: ['hilos-tensores'], img: 'linear-gradient(135deg, #2D4A3E 0%, #1F3429 100%)', dark: true },
+    { id: 6, cat: 'Fisioterapia', title: 'Suelo pélvico después del parto: cuándo empezar', excerpt: 'Sin tabúes ni prisas. Qué evaluamos en la primera sesión y por qué importa hacerlo bien.', date: '18 mar 2026', read: '6 min', tags: ['suelo-pelvico', 'manual'], img: 'linear-gradient(135deg, #2D4A3E 0%, #4A6353 100%)', dark: true },
+    { id: 7, cat: 'Psicología', title: 'Operarse y sentirse igual: cuando lo de fuera no es suficiente', excerpt: 'Por qué algunas pacientes vienen a psicología después (o antes) de un tratamiento estético.', date: '14 mar 2026', read: '8 min', tags: ['imagen-corporal', 'adultos'], img: 'linear-gradient(135deg, #C97455 0%, #8B5A45 100%)', dark: true },
+    { id: 8, cat: 'Estética facial', title: 'Láser CO2: la verdad sobre el "tiempo de baja"', excerpt: 'Cuántos días vas a estar roja, qué se ve, qué se nota y cuándo puedes salir a la calle.', date: '8 mar 2026', read: '5 min', tags: ['laser-co2'], img: 'linear-gradient(135deg, #C97455 0%, #B25E3F 100%)', dark: true },
+    { id: 9, cat: 'Estética corporal', title: 'Lipoláser: lo que cambia (y lo que no) frente a la lipo clásica', excerpt: 'Anestesia local, recuperación más corta, resultados distintos. Cuándo recomendamos cada uno.', date: '2 mar 2026', read: '6 min', tags: ['lipolaser'], img: 'linear-gradient(135deg, #C97455 0%, #E89878 100%)', dark: true },
+    { id: 10, cat: 'Capilar', title: 'Cejas: tres errores comunes en el injerto', excerpt: 'Dirección del pelo, densidad y diseño facial. Por qué un injerto de cejas se nota cuando está mal hecho.', date: '24 feb 2026', read: '4 min', tags: ['cejas'], img: 'linear-gradient(135deg, #C97455 0%, #A85A40 100%)', dark: true },
+    { id: 11, cat: 'Fisioterapia', title: 'Volver a correr después de una lesión: la regla del 10%', excerpt: 'Cómo planificamos la vuelta al deporte sin recaídas. Plan de 6 semanas tipo.', date: '18 feb 2026', read: '5 min', tags: ['deportiva', 'manual'], img: 'repeating-linear-gradient(135deg, #2D4A3E 0px, #2D4A3E 6px, #355446 6px, #355446 12px)', dark: true },
+    { id: 12, cat: 'Psicología', title: 'Terapia online: cuándo funciona igual y cuándo no', excerpt: 'Después de tres años haciéndolo, te contamos en qué casos preferimos verte en clínica.', date: '12 feb 2026', read: '5 min', tags: ['online', 'adultos'], img: 'linear-gradient(135deg, #2D4A3E 0%, #355446 100%)', dark: true }
+  ];
+
+  // ---- Render ----
+  const grid = document.getElementById('postsGrid');
+  const emptyEl = document.getElementById('emptyState');
+  const countEl = document.getElementById('postsCount');
+  const banner = document.getElementById('tagBanner');
+  const bannerName = document.getElementById('tagBannerName');
+  const rail = document.getElementById('tagRail');
+
+  function renderPosts(list) {
+    // Remove existing post nodes (keep empty state node)
+    [...grid.querySelectorAll('.post, .nl')].forEach(n => n.remove());
+    list.forEach((p, idx) => {
+      const a = document.createElement('a');
+      a.href = '#post-' + p.id;
+      a.className = 'post';
+      const phLabelStyle = p.dark ? 'background:rgba(247,242,234,0.95);' : '';
+      a.innerHTML = `
+        <div class="post-img">
+          <span class="post-cat">${p.cat}</span>
+          <div class="post-img-ph" style="background: ${p.img};">
+            <span class="ph-label" style="${phLabelStyle}">FOTO · ${p.title.slice(0,28).toUpperCase()}</span>
+          </div>
+        </div>
+        <div class="post-meta">
+          <span>${p.date}</span><span class="post-meta-dot"></span><span>${p.read} de lectura</span>
+        </div>
+        <h2 class="post-title">${p.title}</h2>
+        <p class="post-excerpt">${p.excerpt}</p>
+        <div class="post-tags">
+          ${p.tags.map(t => `<span class="post-tag">${tagLabels[t] || t}</span>`).join('')}
+        </div>
+      `;
+      grid.insertBefore(a, emptyEl);
+      // Insert newsletter after 4th visible post
+      if (idx === 3) {
+        const nl = document.createElement('div');
+        nl.className = 'nl';
+        nl.innerHTML = `
+          <div>
+            <h3>Una <em>carta mensual</em>, sin venderte nada.</h3>
+            <p>Lo que aprendemos en consulta, contado en cinco minutos. Sin promociones agresivas. Te puedes dar de baja con un clic.</p>
+          </div>
+          <form class="nl-form" onsubmit="event.preventDefault(); this.querySelector('.nl-submit').textContent='¡Apuntada!';">
+            <input type="email" class="nl-input" placeholder="tu@email.com" required>
+            <button class="nl-submit" type="submit">Apuntarme</button>
+          </form>
+        `;
+        grid.insertBefore(nl, emptyEl);
+      }
+    });
+  }
+
+  function renderRail(activeTag) {
+    // Count posts per tag
+    const counts = {};
+    posts.forEach(p => p.tags.forEach(t => { counts[t] = (counts[t]||0) + 1; }));
+    const tags = Object.keys(tagLabels).filter(t => counts[t] > 0).sort((a,b) => counts[b]-counts[a]);
+    rail.innerHTML = `
+      <a href="blog.html" class="tag-pill ${!activeTag ? 'active' : ''}">Todos <span class="tag-pill-count">${posts.length}</span></a>
+      ${tags.map(t => `
+        <a href="blog.html?tag=${t}" class="tag-pill ${activeTag===t ? 'active' : ''}">${tagLabels[t]} <span class="tag-pill-count">${counts[t]}</span></a>
+      `).join('')}
+    `;
+  }
+
+  function applyFilter() {
+    const params = new URLSearchParams(window.location.search);
+    const activeTag = params.get('tag');
+    let list = posts;
+    if (activeTag) {
+      list = posts.filter(p => p.tags.includes(activeTag));
+      banner.classList.add('show');
+      bannerName.textContent = tagLabels[activeTag] || activeTag;
+    } else {
+      banner.classList.remove('show');
+    }
+    countEl.textContent = list.length === 1 ? '1 artículo' : `${list.length} artículos`;
+    renderPosts(list);
+    if (list.length === 0) emptyEl.classList.add('show'); else emptyEl.classList.remove('show');
+    renderRail(activeTag);
+  }
+
+  applyFilter();
+</script>
+
+</body>
+</html>

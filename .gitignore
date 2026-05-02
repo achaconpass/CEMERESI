@@ -32,3 +32,13 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Documentos del cliente (van al Drive)
+*.pdf
+WhatsApp*
+
+# Recursos exportados que no deben subirse
+*.psd
+*.ai
+*.sketch
+*.fig
