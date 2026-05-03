@@ -13,13 +13,17 @@ export function CtaDual() {
       cal("ui", {
         theme: "light",
         cssVarsPerTheme: {
-          light: {
+            light: {
             "cal-brand": "#1F4E5F",
-          },
+            },
+            dark: {
+            "cal-brand": "#1F4E5F",
+            },
         },
         hideEventTypeDetails: false,
         layout: "month_view",
-      });
+        });
+
     })();
   }, []);
 
