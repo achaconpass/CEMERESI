@@ -14,7 +14,7 @@ const services = [
     title: "Medicina estética",
     description:
       "Tratamientos faciales y corporales sin cirugía. Bótox, ácido hialurónico, mesoterapia.",
-    href: "#medicina-estetica",
+    href: "/servicios/medicina-estetica",
   },
   {
     icon: Scissors,

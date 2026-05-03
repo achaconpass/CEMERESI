@@ -7,18 +7,27 @@ interface AlopeciaType {
 }
 
 interface EducationalIntroProps {
+  eyebrow?: string;
+  title?: string;
   intro: string;
+  subtitleHeading: string;
   alopeciaTypes: AlopeciaType[];
 }
 
-export function EducationalIntro({ intro, alopeciaTypes }: EducationalIntroProps) {
+export function EducationalIntro({
+  eyebrow = "Antes de hablar de trasplante",
+  title = "¿Por qué se cae el pelo?",
+  intro,
+  subtitleHeading,
+  alopeciaTypes,
+}: EducationalIntroProps) {
   return (
     <section className="bg-white py-16 lg:py-24 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 lg:mb-16">
-          <p className="eyebrow mb-3">Antes de hablar de trasplante</p>
+          <p className="eyebrow mb-3">{eyebrow}</p>
           <h2 className="font-heading text-teal text-[26px] lg:text-[40px] font-medium leading-tight tracking-tight mb-5">
-            ¿Por qué se cae el pelo?
+            {title}
           </h2>
           <p className="text-teal/75 text-sm lg:text-base leading-relaxed max-w-[680px] mx-auto">
             {intro}
@@ -26,7 +35,7 @@ export function EducationalIntro({ intro, alopeciaTypes }: EducationalIntroProps
         </div>
 
         <h3 className="font-heading text-teal text-xl lg:text-2xl font-medium text-center mb-8 lg:mb-10">
-          Los tres tipos de alopecia más comunes
+          {subtitleHeading}
         </h3>
 
         <div className="grid md:grid-cols-3 gap-4 lg:gap-5">

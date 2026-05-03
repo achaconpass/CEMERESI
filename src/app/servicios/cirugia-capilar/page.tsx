@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingCTAs } from "@/components/layout/FloatingCTAs";
 import { ServiceHero } from "@/components/sections/servicio/ServiceHero";
 import { EducationalIntro } from "@/components/sections/servicio/EducationalIntro";
 import { DoctorVoice } from "@/components/sections/servicio/DoctorVoice";
@@ -55,7 +56,6 @@ const alopeciaTypes = [
 ];
 
 const doctorPosts = [
-  // ⚠️ Sustituir por URLs reales de posts educativos de @dra.koeyu
   "https://www.instagram.com/p/DOBJGN2CHo9/",
   "https://www.instagram.com/p/DUnSl3JDdeK/",
   "https://www.instagram.com/p/DK2gjvUuDzH/",
@@ -172,7 +172,10 @@ export default function CirugiaCapilarPage() {
         />
 
         <EducationalIntro
+          eyebrow="Antes de hablar de trasplante"
+          title="¿Por qué se cae el pelo?"
           intro="No toda caída de pelo es una alopecia que requiera cirugía. Antes de hablar de injertos, hay que entender qué está pasando: hay caídas reversibles, otras que necesitan tratamiento médico, y algunas que sí se resuelven con cirugía. El diagnóstico siempre va primero."
+          subtitleHeading="Los tres tipos de alopecia más comunes"
           alopeciaTypes={alopeciaTypes}
         />
 
@@ -238,6 +241,7 @@ export default function CirugiaCapilarPage() {
         />
       </main>
       <Footer />
+      <FloatingCTAs />
     </>
   );
 }
