@@ -28,7 +28,7 @@ const services = [
     title: "Cirugía capilar",
     description:
       "Técnicas FUE, Implanter y Zafiro. Resultados naturales y duraderos.",
-    href: "#cirugia-capilar",
+    href: "/servicios/cirugia-capilar",
   },
   {
     icon: Flower2,
